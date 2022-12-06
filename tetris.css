@@ -34,6 +34,51 @@
     transition-duration: .1s
 }
 
+.__tetris-container [class^="piece--next"] {
+    transform: scale(.5);
+    bottom: 95%;
+}
+
+.__tetris-container [class^="piece--next"]:nth-of-type(0) { left: 0%; transition-delay: 0ms; }
+.__tetris-container [class^="piece--next"]:nth-of-type(1) { left: 5%; transition-delay: 10ms; }
+.__tetris-container [class^="piece--next"]:nth-of-type(2) { left: 10%; transition-delay: 20ms; }
+.__tetris-container [class^="piece--next"]:nth-of-type(3) { left: 15%; transition-delay: 30ms; }
+
+.__tetris-container .piece--next--I:nth-of-type(1) { left: 0%; }
+.__tetris-container .piece--next--I:nth-of-type(2) { left: 5%; }
+.__tetris-container .piece--next--I:nth-of-type(3) { left: 10%; }
+.__tetris-container .piece--next--I:nth-of-type(4) { left: 15%; }
+
+.__tetris-container .piece--next--O:nth-of-type(1) { left: 0%; bottom: 92.5%; }
+.__tetris-container .piece--next--O:nth-of-type(2) { left: 0%; }
+.__tetris-container .piece--next--O:nth-of-type(3) { left: 5%; }
+.__tetris-container .piece--next--O:nth-of-type(4) { left: 5%; bottom: 92.5%; }
+
+.__tetris-container .piece--next--T:nth-of-type(1) { left: 0%; }
+.__tetris-container .piece--next--T:nth-of-type(2) { left: 5%; bottom: 92.5%; }
+.__tetris-container .piece--next--T:nth-of-type(3) { left: 5%; }
+.__tetris-container .piece--next--T:nth-of-type(4) { left: 10%; }
+
+.__tetris-container .piece--next--J:nth-of-type(1) { left: 0%; }
+.__tetris-container .piece--next--J:nth-of-type(2) { left: 5%; }
+.__tetris-container .piece--next--J:nth-of-type(3) { left: 10%; }
+.__tetris-container .piece--next--J:nth-of-type(4) { left: 10%; bottom: 92.5%; }
+
+.__tetris-container .piece--next--L:nth-of-type(1) { left: 0%; bottom: 92.5%; }
+.__tetris-container .piece--next--L:nth-of-type(2) { left: 0%; }
+.__tetris-container .piece--next--L:nth-of-type(3) { left: 5%; }
+.__tetris-container .piece--next--L:nth-of-type(4) { left: 10%; }
+
+.__tetris-container .piece--next--S:nth-of-type(1) { left: 0%; bottom: 92.5%; }
+.__tetris-container .piece--next--S:nth-of-type(2) { left: 5%; bottom: 92.5%; }
+.__tetris-container .piece--next--S:nth-of-type(3) { left: 5%; }
+.__tetris-container .piece--next--S:nth-of-type(4) { left: 10%; }
+
+.__tetris-container .piece--next--Z:nth-of-type(1) { left: 0%; }
+.__tetris-container .piece--next--Z:nth-of-type(2) { left: 5%; }
+.__tetris-container .piece--next--Z:nth-of-type(3) { left: 5%; bottom: 92.5%; }
+.__tetris-container .piece--next--Z:nth-of-type(4) { left: 10%; bottom: 92.5%; }
+
 .__tetris-container .piece--I { background-color: #2fb936 }
 .__tetris-container .piece--O { background-color: #2f00ff }
 .__tetris-container .piece--T { background-color: #00bd9a }
