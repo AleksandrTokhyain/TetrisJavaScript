@@ -90,6 +90,58 @@
                 width: 4vw;
                 transform: translate(-50%, -50%)
             }
+
+            #game-over {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(255, 255, 255, .5) url('/img/game-over.svg') no-repeat center;
+                background-size: contain;
+                height: 25vw;
+                max-height: 300px;
+                width: 100%;
+                backdrop-filter: blur(5px);
+                box-shadow: 0 5px 20px -10px rgba(0, 0, 0, .6);
+                display: none;
+            }
+
+            @media only screen and (min-width: 500px) {
+                #controls > div {
+                    height: 75px;
+                    width: 75px;
+                    border-radius: 10px;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, .5), inset 0 0 0 8px rgba(255, 255, 255, .2);
+                }
+
+                #controls > div::after { border-width: 15px; }
+
+                #controls .control--left {
+                    left: 25px;
+                    bottom: 90px;
+                }
+
+                #controls .control--down {
+                    left: 105px;
+                    bottom: 25px;
+                }
+
+                #controls .control--right {
+                    left: 185px;
+                    bottom: 90px;
+                }
+
+                #controls .control--action {
+                    right: 25px;
+                    bottom: 25px;
+                    height: 150px;
+                    width: 150px;
+                }
+
+                #controls .control--action::after {
+                    height: 20px;
+                    width: 20px;
+                }
+            }
 		</style>
 		<title>Tetris</title>
 	</head>
