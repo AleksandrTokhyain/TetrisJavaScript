@@ -119,7 +119,7 @@ class Tetris {
 
     if (addNewPiece) {
       const currentPieceRow = this._currentPiece.reduce((maxY, block) => Math.max(block.y, maxY), 0)
-      if (currentPieceRow >= BOARD_SIZE.y - 3) {
+      if (currentPieceRow >= BOARD_SIZE.y - 2) {
         this._gameOver()
       } else {
         this._checkFullRows()
@@ -175,11 +175,13 @@ class Tetris {
       width: 0,
     })
     const xShift = Math.min(0, Math.max(-2, (BOARD_SIZE.x - 1) - (piecePosition.x + rotatedPieceProperties.width - 1))) // Move piece left if it hits the wall after rotation
+    let xRelativeAlign = Math.floor(rotatedPieceProperties.height / 2 - 1)
+    if (piecePosition.x + xRelativeAlign < 0) xRelativeAlign = 0
     const rotatedPiece = this._currentPiece.map(block => Object.assign({
       x: block.x,
       y: block.y,
     }, {
-      x: piecePosition.y - block.y + piecePosition.x + xShift + Math.floor(rotatedPieceProperties.height / 2 - 1),
+      x: piecePosition.y - block.y + piecePosition.x + xShift + xRelativeAlign,
       y: block.x - piecePosition.x + piecePosition.y - (rotatedPieceProperties.height - 1),
     }))
     const hit = rotatedPiece.reduce((hit, block) => hit ||
@@ -237,7 +239,10 @@ class Tetris {
     const getRandomPieceType = () => pieceTypes[Math.floor(Math.random() * pieceTypes.length)]
     const pieceType = this._nextPieceType || getRandomPieceType()
 
-    this._currentPiece.forEach(block => { block.currentPiece = false })
+    this._currentPiece.forEach(block => {
+      block.currentPiece = false
+      block.element.classList.remove('piece--current')
+    })
     this._currentPiece = []
     this._nextPieceType = getRandomPieceType()
 
@@ -261,7 +266,7 @@ class Tetris {
 
   _generateBlock (type, x, y) {
     const block = {
-      element: Object.assign(document.createElement('DIV'), { className: `piece--${type}` }),
+      element: Object.assign(document.createElement('DIV'), { className: `piece--${type} piece--current` }),
       currentPiece: true,
       x,
       y,
